@@ -1,15 +1,13 @@
-import React,{ useState } from 'react';
-import Student from './Student';
 import './App.css';
+import Login from './Login';
 
 function App(){
-const [name,setName]=useState("Bilal")
-  return (
-    <div className="App">
-      <h1>Hello World!!</h1>
-      <Student name={name} />
-      <button onClick={()=>{setName("Billo")}}>Update Button</button>
-    </div>
-  );
+ 
+ return(
+<div className='App'>
+  <h1>Hello Dominika </h1>
+  <Login/>
+</div>
+ )
 }
 export default App;
