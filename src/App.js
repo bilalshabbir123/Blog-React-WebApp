@@ -1,23 +1,25 @@
+import React from 'react'
 import './App.css';
-import React from 'react';
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0
-    }
-  }
-  shouldComponentUpdate()
-  {
-    console.warn("shouldComponentUpdate",this.state.count);
-    return true;
-  }
-  render() {
-    return (
-       <div className='App'>
-        <h2 style={{ color: "red" }}>Update Count {this.state.count}</h2>
-        <button onClick={() => { this.setState({count:this.state.count + 1})}}>Update Count</button>
-      </div>
-    );
-  }
+import { Table } from 'react-bootstrap'
+
+export default function App() {
+  const users = [
+    { name: 'Bilal', email: 'bilal@gmail.com', address: 'Lahore' },
+    { name: 'Salman', email: 'salman@gmail.com', address: 'Karachi' },
+    { name: 'Zeeshan', email: 'Zeeshan@gmail.com', address: 'Faisalabad' },
+    { name: 'Fraz', email: 'Fraz@gmail.com', address: 'Iran' }
+  ]
+  return (
+    <div className="App">
+      <h1>Reuse Components with List</h1>
+      {
+        users.map((items,i) => 
+          <h2>
+            { items.name } 
+          </h2>
+        )
+      }
+    </div>
+  )
 }
+
