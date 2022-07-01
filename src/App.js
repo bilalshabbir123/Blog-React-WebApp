@@ -1,24 +1,24 @@
-import React from 'react'
+import React, { useState, useMemo, useRef } from 'react'
+import { BrowserRouter, Routes, Route,Navigate } from 'react-router-dom';
+
 import './App.css';
-import { Table } from 'react-bootstrap'
+import About from './component/About';
+import Home from './component/Home';
+import Navbar from './component/Navbar';
+import User from './component/User';
 
 export default function App() {
-  const users = [
-    { name: 'Bilal', email: 'bilal@gmail.com', address: 'Lahore' },
-    { name: 'Salman', email: 'salman@gmail.com', address: 'Karachi' },
-    { name: 'Zeeshan', email: 'Zeeshan@gmail.com', address: 'Faisalabad' },
-    { name: 'Fraz', email: 'Fraz@gmail.com', address: 'Iran' }
-  ]
   return (
     <div className="App">
-      <h1>Reuse Components with List</h1>
-      {
-        users.map((items,i) => 
-          <h2>
-            { items.name } 
-          </h2>
-        )
-      }
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/user/:name" element={<User/>}/>
+          <Route path="/*" element={<Navigate to="/"/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
